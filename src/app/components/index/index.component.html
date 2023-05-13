@@ -1,0 +1,7 @@
+<app-side-bar [contactos]="persona.contactos"></app-side-bar>
+<app-persona [persona]="persona" (updatePersona)="updatePersona($event)"></app-persona>
+
+<app-formacion [formacion]="persona.formacion"></app-formacion>
+<app-experiencia [experiencias]="persona.experiencias"></app-experiencia>
+<app-proyecto [proyectos]="persona.proyectos"></app-proyecto>
+<app-habilidad [habilidades]="persona.habilidades"></app-habilidad>

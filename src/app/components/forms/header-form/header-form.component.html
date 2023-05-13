@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header contendor-header-card text-center">
+                    <h3 class="titulo-card">Persona</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <label for="urlFoto">URL Foto: </label>
+                                <input type="text" class="form-control" id="urlFoto" name="urlFoto"
+                                    [(ngModel)]="persona.urlFoto">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="urlBanner">URL Banner: </label>
+                                    <input type="text" class="form-control" id="urlBanner" name="urlBanner"
+                                        [(ngModel)]="persona.urlBanner">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-6">
+                                <a href="javascript:history.back()" class="btn btn-dark btn-md"
+                                    style="width:100%">Volver</a>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" type="submit" style="width:100%">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

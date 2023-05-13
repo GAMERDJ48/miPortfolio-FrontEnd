@@ -1,0 +1,21 @@
+<div class="body">
+    <div class="contenedor-login">
+        <h2>Login</h2>
+        <form id="forma" name="forma" (ngSubmit)="ingresar()">
+            <div class="elemento">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" [(ngModel)]="username" required="true" />
+            </div>
+            <div class="elemento">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" required="true" />
+            </div>
+            <div class="elemento" *ngIf="incorrecto">
+                <p class="acceso-invalido">Acceso invalido. El usuario y/o contraseña son incorrectos</p>   
+            </div>
+            <div class="elemento">
+                <button class="boton-submit" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

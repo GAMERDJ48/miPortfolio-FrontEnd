@@ -1,0 +1,62 @@
+<div class="mt-5">
+  <div class="d-flex justify-content-center">
+    <h1>Formación</h1>
+    <app-button-crud class="mt-2 ms-3" [opcion]="'create'" [objetoUrl]="'formacion'"></app-button-crud>
+  </div>
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let f of formacion;let i = index" [ngClass]="{'active': i === 0}" type="button" data-bs-target="#carouselExampleDark" [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide '+i"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let f of formacion;let i = index" [ngClass]="{'active': i === 0}" data-bs-interval="10000">
+        <div class="card">
+          <div class="card-header contendor-header-card">
+            <h3 class="titulo-card">{{f.organizacion}}</h3>
+            <div class="contenedor-buttons-crud">
+              <app-button-crud [opcion]="'edit'" [objetoUrl]="'formacion/'+f.id"></app-button-crud>
+              <app-button-crud [opcion]="'delete'" [objetoUrl]="'formacion/'+f.id"></app-button-crud>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-3 contenedor-imagen">
+                <img src="{{f.urlImagen}}">
+              </div>
+              <div class="col-md-9 ml-3">
+                <div class="row mt-3">
+                  <label for="especialidad">Especialidad: </label>
+                  <input type="text" class="form-control" name="especialidad" value="{{f.especialidad}}" disabled>
+  
+                </div>
+                <div class="row mt-3">
+                  <label for="tipoOrganizacion">Tipo de Organizacion: </label>
+                  <input type="text" class="form-control" name="tipoOrganizacion"
+                    value="{{f.tipoOrganizacion.nombre}}" disabled>
+                </div>
+              </div>
+              <hr>
+              
+            </div>
+            <div class="row">
+              <p>{{f.descripcion}}</p>  
+            </div>
+            <div class="row">
+              <p class="card-text" class="text-muted" >{{f.anioDesde}}  - 
+              <span *ngIf="f.anioHasta==null; else notnull">ACTUALIDAD</span><ng-template #notnull>{{f.anioHasta}}</ng-template></p>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    <button *ngIf="formacion.length>1" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button *ngIf="formacion.length>1" class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

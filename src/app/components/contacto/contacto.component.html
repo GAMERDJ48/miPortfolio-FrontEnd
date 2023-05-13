@@ -1,0 +1,8 @@
+<div *ngIf="!sesionIniciada; else iniciada">
+    <a href="{{contacto.url}}" target="_blank"><fa-icon [icon]="icono" title="{{contacto.nombre}}"></fa-icon></a>
+</div>
+<ng-template #iniciada>
+    <a  href="/contacto/{{contacto.id}}" ><fa-icon [icon]="icono" title="{{contacto.nombre}}" target="_blank">
+        
+    </fa-icon></a>
+</ng-template>

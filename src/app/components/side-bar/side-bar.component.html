@@ -1,0 +1,21 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 sidebar">
+  <div class="contenedor-logo">
+    <a href="">
+      <img class="logo" src="..\..\..\assets\logo.png" alt="Argentina Programa 4.0" title="Argentina Programa 4.0"/>
+      <img class="letras-logo" src="..\..\..\assets\letras-logo.png" alt="Argentina Programa 4.0" title="Argentina Programa 4.0"/>
+    </a>
+</div>
+  <div class="nav nav-pills flex-column mb-auto d-flex align-items-center">
+    <app-contacto *ngFor="let contacto of contactos" [contacto]="contacto" [sesionIniciada]="sesionIniciada" class="nav-item" [ngStyle]="sesionIniciada ? {'color':'red'}:{'color': 'blue'}"></app-contacto>
+    <app-button-crud *ngIf="sesionIniciada" class="mt-2" [opcion]="'create'" [objetoUrl]="'contacto'"></app-button-crud>
+
+    </div>
+  <div *ngIf="!sesionIniciada; else iniciada">
+    <button class="btn btn-primary" (click)="iniciarSesion()"><i class="fa-solid fa-right-to-bracket" title="Iniciar Sesión"></i></button>
+  </div>
+  <ng-template #iniciada><button class="btn btn-danger" (click)="cerrarSesion()"><i title="Cerrar Sesión" class="fa-solid fa-right-from-bracket"></i></button></ng-template>
+  
+
+
+  
+

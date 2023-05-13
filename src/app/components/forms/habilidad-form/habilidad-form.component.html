@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header contendor-header-card text-center">
+                    <h3 class="titulo-card">Habilidad</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                        <div class="row mt-3">
+                            <div class="col-5 align-items-center d-flex flex-row gap-2">
+                                <label for="nombre">Nombre: </label>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    [(ngModel)]="habilidad.nombre">
+                            </div>
+                            <div class="col-2 align-items-center d-flex flex-row gap-2">
+                                <label for="nivelHabilidad">Nivel: </label>
+                                <input type="number" max="100" min="1" class="form-control" id="nivelHabilidad" name="nivelHabilidad" [(ngModel)]="habilidad.nivelHabilidad">
+                                %
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-6">
+                                <a href="javascript:history.back()" class="btn btn-dark btn-md"
+                                    style="width:100%">Volver</a>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" type="submit" style="width:100%">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

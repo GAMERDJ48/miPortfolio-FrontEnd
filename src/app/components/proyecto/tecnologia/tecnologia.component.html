@@ -1,0 +1,4 @@
+<i *ngIf="icono!=''; else sinIcono" title="{{tecnologia}}" class="{{icono}}"></i>
+<ng-template #sinIcono>
+    <button class="btn btn-primary">{{tecnologia}}</button>
+</ng-template>

@@ -1,0 +1,76 @@
+<div class="mt-5 mb-5">
+  <div class="d-flex justify-content-center">
+    <h1>Proyectos</h1>
+    <app-button-crud class="mt-2 ms-3" [opcion]="'create'" [objetoUrl]="'proyecto'"></app-button-crud>
+  </div>
+  <div id="carouselExampleDark3" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button *ngFor="let proyecto of proyectos;let i = index" [ngClass]="{'active': i === 0}" type="button"
+        data-bs-target="#carouselExampleDark3" [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide '+i"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let proyecto of proyectos;let i = index" [ngClass]="{'active': i === 0}"
+        data-bs-interval="10000">
+        <div class="card">
+          <div class="card-header contendor-header-card">
+            <h3 class="titulo-card">{{proyecto.titulo}}</h3>
+            <div class="contenedor-buttons-crud">
+              <app-button-crud [opcion]="'edit'" [objetoUrl]="'proyecto/'+proyecto.id"></app-button-crud>
+              <app-button-crud [opcion]="'delete'" [objetoUrl]="'proyecto/'+proyecto.id"></app-button-crud>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="row g-3 ms-3 me-3">
+              <div class="col-md-12">
+                <p>{{proyecto.descripcion}}</p>
+              </div>
+              <div *ngIf="proyecto.url!=''" class="col-md-12 text-end">
+                <div *ngIf="proyecto.urlBack!=''; else soloUnUrl">
+                  <a href="{{proyecto.url}}" class="github-link" title="GitHub" target="_blank">
+                    GitHub Front<i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="{{proyecto.urlBack}}" class="github-link" title="GitHub" target="_blank">
+                    GitHub Back<i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+                <ng-template #soloUnUrl>
+                  <a href="{{proyecto.url}}" class="github-link" title="GitHub" target="_blank">
+                    GitHub<i class="fa-brands fa-github"></i>
+                  </a>
+                </ng-template>
+              </div>
+              <hr>
+              <div class="row">
+                <label>Stack Tecnologico: </label>
+                <div class=" align-items-start d-flex flex-row gap-2">
+                  <app-tecnologia class="mx-2" *ngFor="let tecnologia of proyecto.stackTecnologico"
+                    [tecnologia]="tecnologia"></app-tecnologia>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <p class="card-text text-muted">{{proyecto.anioDesde}} -
+                <span *ngIf="proyecto.anioHasta==null else notnull">ACTUALIDAD</span><ng-template
+                  #notnull>{{proyecto.anioHasta}}</ng-template>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button *ngIf="proyectos.length>1" class="carousel-control-prev" type="button"
+      data-bs-target="#carouselExampleDark3" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button *ngIf="proyectos.length>1" class="carousel-control-next" type="button"
+      data-bs-target="#carouselExampleDark3" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>

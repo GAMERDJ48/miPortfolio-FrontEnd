@@ -1,0 +1,60 @@
+<section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar">
+                <img src="{{persona.urlFoto}}" alt="img-avatar">
+                <button *ngIf="modificarPersona" title="Cambiar Foto" (click)="editarFoto()" class="boton-avatar">
+                    <i class="far fa-image"></i>
+                </button>
+            </div>
+            <img class="perfil-usuario-banner" *ngIf="persona.urlBanner!=null" src="{{persona.urlBanner}}">
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <form (ngSubmit)="guardarPersona(persona)">
+            <div class="perfil-usuario-bio">
+                <div class="d-flex justify-items-center m-auto">
+                    <div *ngIf="!modificarPersona; else formulario" class="m-auto">
+                        <h3 class="titulo">{{persona.nombre}} {{persona.apellido}}</h3>
+                    </div>
+                    <ng-template #formulario class="d-flex flex-row gap-3">
+                        <input id="nombre" name="nombre" class="form-control m-2" [(ngModel)]="persona.nombre">
+                        <input id="apellido" name="apellido" class="form-control m-2" [(ngModel)]="persona.apellido">
+                    </ng-template>
+                    <app-button-crud style="margin-left: auto;" [opcion]="'edit'" [objetoUrl]="'persona'"
+                        class="boton-editar" (click)="togglePersona()"></app-button-crud>
+                </div>
+                <p class="texto" *ngIf="!modificarPersona; else formularioDesc">{{persona.descripcion}}</p>
+                <ng-template #formularioDesc class="d-flex flex-row gap-3 m-2">
+                    <textarea id="descripcion" name="descripcion" class="form-control"
+                        [(ngModel)]="persona.descripcion"></textarea>
+                </ng-template>
+            </div>
+            <div class="perfil-usuario-footer" *ngIf="!modificarPersona; else formularioFooter">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono: {{persona.telefono}}</li>
+
+                </ul>
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento: {{persona.fechaNacimiento}}</li>
+                </ul>
+            </div>
+            <ng-template #formularioFooter>
+                <div class="perfil-usuario-footer">
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-phone-alt"></i> <label for="telefono">Telefono: </label><input
+                                id="telefono" class="form-control" name="telefono" [(ngModel)]="persona.telefono"></li>
+                    </ul>
+                    <ul class="lista-datos">
+                        <li><i class="icono fas fa-phone-alt"></i> <label for="fechaNacimiento">Fecha de Nacimiento:
+                            </label><input type="date" id="fechaNacimiento" class="form-control" name="fechaNacimiento"
+                                [(ngModel)]="persona.fechaNacimiento"></li>
+                    </ul>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+                    </div>
+                </div>
+            </ng-template>
+        </form>
+    </div>
+</section>

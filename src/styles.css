@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-principal: linear-gradient(45deg, #BC3CFF, #317FFF);
+  --color-secundario: white;
+}
+
+
+.contenedor-imagen img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.contendor-header-card{
+  background-image: var(--color-principal);
+    color: var(--color-secundario);
+    
+}
+
+.titulo-card{
+  display: inline-block;
+}
+
+.contendor-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenedor-buttons-crud {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 200px;
+  margin-right: 50px; /* ajusta el tamaño según tus necesidades */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+}
+
+.btn-circle {
+  border-radius: 50%;
+}
+
+
+
+
+

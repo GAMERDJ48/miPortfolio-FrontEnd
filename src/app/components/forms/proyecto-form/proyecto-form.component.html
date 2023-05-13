@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header contendor-header-card text-center">
+                    <h3 class="titulo-card">Proyecto</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" #proyectoForm="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                        <div class="row mt-3">
+                            <div class="col-3 ">
+                                <label for="titulo">Titulo: </label>
+                                <input type="text" class="form-control" id="titulo" name="titulo"
+                                    [(ngModel)]="proyecto.titulo">
+                            </div>
+                            <div class="col-9">
+                                <label for="stackTecnologico">Stack Tecnologico: </label>
+                                <input type="text" class="form-control" id="stackTecnologico" name="stackTecnologico"
+                                    [(ngModel)]="tecnologias">
+                                    <p style="color:rgb(36, 65, 208)">Especificar los elementos separados por coma sin espacios entre los comas</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <label for="url">URL Front-End: </label>
+                                <input type="text" class="form-control" id="url" name="url"
+                                    [(ngModel)]="proyecto.url">
+                                    <p style="color:rgb(36, 65, 208)">Aclaración: Si solo tenes un solo repositorio, subirlo solo aca, y el back dejarlo en blanco</p>
+                            </div>
+                            <div class="col-4">
+                                <label for="url">URL Back-End: </label>
+                                <input type="text" class="form-control" id="url" name="url"
+                                    [(ngModel)]="proyecto.urlBack">
+                            </div>
+                            <div class="col-2 ">
+                                <label for="anioDesde">Año desde: </label>
+                                <input type="number" class="form-control" id="anioDesde" name="anioDesde"
+                                    [(ngModel)]="proyecto.anioDesde">
+                            </div>
+                            <div class="col-2 ">
+                                <label for="anioHasta">Año hasta: </label>
+                                <input type="number" class="form-control" id="anioHasta" name="anioHasta"
+                                    [(ngModel)]="proyecto.anioHasta">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <label for="descripcion">Descripción: </label>
+                            <textarea class="form-control" id="descripcion" rows="5" name="descripcion"
+                                [(ngModel)]="proyecto.descripcion"></textarea>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-6">
+                                <a href="javascript:history.back()" class="btn btn-dark btn-md"
+                                    style="width:100%">Volver</a>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" type="submit" style="width:100%">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

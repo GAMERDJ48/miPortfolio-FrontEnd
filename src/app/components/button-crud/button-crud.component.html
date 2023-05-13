@@ -1,0 +1,16 @@
+<div *ngIf="sesionIniciada">
+    <div *ngIf="opcion=='delete';else modificar">
+        <button class="btn btn-transparent bg-white btn-modificar" title="delete" (click)="eliminar()"><fa-icon [icon]="faIcon"></fa-icon></button>
+    </div>
+    <ng-template #modificar>
+        <a class="btn "
+            [ngClass]="{'btn-transparent bg-white':opcion=='edit','btn-primary btn-circle':opcion=='create'}"
+            [routerLink]="['/'+objetoUrl]" title="{{opcion}}">
+            <fa-icon [icon]="faIcon"></fa-icon>
+        </a>
+    </ng-template>
+
+    
+
+</div>
+

@@ -1,0 +1,10 @@
+i{
+    color: rgb(10, 10, 158);
+    display: inline-block;
+    width: 15px; /* Cambiar a la medida deseada */
+    font-size: 2em; /* Cambiar a la medida deseada */
+    
+}
+button{
+    border-radius: 70px;
+}
