@@ -10,7 +10,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   export const environment = {
     production: false,
-    API_URL: 'http://localhost:8080/portfolio',
+    API_URL: 'https://portfolio-jqa0.onrender.com/portfolio',
   };
 
 
