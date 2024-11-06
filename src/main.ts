@@ -10,7 +10,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
   export const environment = {
     production: false,
-    API_URL: 'mi-portfolio-back-end.vercel.app',
+    API_URL: 'https://portfolio-jqa0.onrender.com/portfolio',
   };
 
 
